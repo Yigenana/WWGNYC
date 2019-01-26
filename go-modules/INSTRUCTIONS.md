@@ -9,7 +9,7 @@ This demo will be run in Docker so we can run Go 1.11.
 
 ## Run Docker with Go
 
-`docker --rm --it golang:1.11`
+`docker run --rm -it golang:1.11`
 
 ## Creating a Go program
 
@@ -116,7 +116,7 @@ Run the tidy command
 
 `go mod tidy`
 
-Tidy adds the requirements for the test files, which are ignored with build. This ensures your tests will pass.
+Tidy adds the requirements for the test files, which are ignored with build. This ensures your tests will pass. It wil also remove unused dependencies.
 
 Understand your dependencies:
 
@@ -127,3 +127,7 @@ Understand your dependencies:
 Go modules supports the vendor directory so that your code can be supported by Go programs no yet using modules.
 
 `go mod vendor`
+
+To force your Go application to use the vendor folder, instead of go modules, use the following build command.
+
+`go build -mod=vendor`
